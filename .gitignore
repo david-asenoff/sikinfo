@@ -7,10 +7,13 @@ obj/
 
 ## Профилите за публикуване съдържат адреса и потребителя на хостинга - остават локални.
 ## В Visual Studio: Publish -> Import Profile -> файлът, свален от панела на хостинга.
-src/SikUdostovereniya.Web/Properties/PublishProfiles/
+src/SikInfo.Web/Properties/PublishProfiles/
 
 ## VS Code (настройки само за тази машина)
 .vscode/
+
+## Инструкцията за публикуване описва хостинга и домейна - остава локална.
+docs/publikuvane.md
 
 ## Word и Excel временни файлове, пробни PDF-и от папките на изборите
 ~$*

@@ -1,0 +1,41 @@
+name: Проверка
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  check:
+    name: Съдържание и build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Код
+        uses: actions/checkout@v4
+
+      - name: Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Проверка на съдържанието (източници, пътеводител, протоколи, въпроси, страници)
+        run: node scripts/check-content.js
+
+      - name: .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Build
+        run: dotnet build SikInfo.slnx --configuration Release --nologo
+
+      - name: Инструментът строи двойките без грешка
+        run: dotnet run --project src/SikInfo.Tools --configuration Release --no-build -- 2026-10-25-PVR
+
+      - name: Публикуването минава и web.config е OutOfProcess
+        run: |
+          dotnet publish src/SikInfo.Web --configuration Release --no-build --output publish --nologo
+          grep -q 'hostingModel="OutOfProcess"' publish/web.config
+          test -f publish/wwwroot/index.html
+          test -f publish/wwwroot/2026-10-25-PVR/33-PVR.docx

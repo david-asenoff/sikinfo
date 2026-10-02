@@ -1,0 +1,10 @@
+# Текстовите файлове са с Unix редове в репото, на всяка машина.
+* text=auto eol=lf
+
+# Двоични файлове: не се нормализират и не се показват като текст в diff.
+*.docx binary
+*.xlsx binary
+*.zip binary
+*.png binary
+*.jpg binary
+*.ico binary
