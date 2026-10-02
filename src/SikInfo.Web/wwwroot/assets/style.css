@@ -1,0 +1,346 @@
+/* ------------------------------------------------------------------
+   Удостоверения за членове на СИК — стилове на сайта
+   Статична страница: описание и изтегляне на файловете. Без скриптове.
+   ------------------------------------------------------------------ */
+
+:root{
+  --bg:#f4f5f7;
+  --card:#fff;
+  --ink:#1a1d21;
+  --muted:#5c636b;
+  --line:#d9dde2;
+  --accent:#1b5e9e;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font:15px/1.55 -apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
+.wrap{max-width:880px;margin:0 auto;padding:0 16px 48px}
+
+/* ---------- Шапка ---------- */
+.hdr{
+  background:var(--accent);
+  color:#fff;
+  padding:32px 16px 28px;
+  text-align:center;
+}
+.hdr h1{margin:0 0 8px;font-size:26px;font-weight:650;letter-spacing:-.2px}
+.lead{margin:0 auto 12px;max-width:640px;font-size:16px;opacity:.95}
+.lead strong{font-weight:650}
+.note{
+  margin:0 auto;max-width:620px;font-size:14px;
+  background:rgba(255,255,255,.14);
+  border-radius:8px;padding:8px 14px;display:inline-block;
+}
+
+/* ---------- Навигация ---------- */
+.nav{
+  position:sticky;top:0;z-index:10;
+  background:#fff;border-bottom:1px solid var(--line);
+  display:flex;gap:4px;justify-content:center;flex-wrap:wrap;
+  padding:8px 12px;
+}
+.nav a{
+  color:var(--muted);text-decoration:none;font-size:14px;font-weight:550;
+  padding:7px 13px;border-radius:7px;white-space:nowrap;
+}
+.nav a:hover,.nav a:focus-visible{background:#eef4fb;color:var(--accent)}
+
+/* ---------- Карти ---------- */
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:24px;
+  margin-top:20px;
+  scroll-margin-top:60px;
+}
+.card h2{
+  margin:0 0 16px;font-size:21px;font-weight:650;
+  padding-bottom:10px;border-bottom:2px solid var(--accent);
+}
+.card h3{margin:22px 0 8px;font-size:16px;font-weight:650;color:var(--accent)}
+.card h2 + h3{margin-top:0}
+.card p{margin:0 0 12px}
+.card ul,.card ol{margin:0 0 12px;padding-left:22px}
+.card li{margin:5px 0}
+.steps li{margin:10px 0}
+.card code{
+  background:#f1f3f5;border-radius:4px;padding:1px 5px;
+  font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;
+}
+.card a{color:var(--accent)}
+.hint{font-size:13px;color:var(--muted)}
+.muted{font-size:13px;color:var(--muted);font-weight:normal}
+.big{margin:0 0 16px}
+
+/* ---------- Видео (16:9, пълна ширина на картата) ---------- */
+.video{
+  position:relative;width:100%;aspect-ratio:16/9;
+  margin:0 0 10px;border-radius:8px;overflow:hidden;background:#000;
+}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* ---------- Бутони ---------- */
+.btn{
+  display:inline-block;cursor:pointer;text-decoration:none;
+  background:#fff;border:1px solid var(--line);border-radius:7px;
+  padding:9px 16px;font-size:15px;font-weight:550;color:var(--ink);
+}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-size:16px;padding:11px 22px}
+.btn.primary:hover{background:#17517f;color:#fff}
+.btn:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---------- Таблици ---------- */
+.tablewrap{overflow-x:auto;margin:0 0 14px;-webkit-overflow-scrolling:touch}
+.card table{border-collapse:collapse;width:100%;font-size:14px;min-width:520px}
+.card th,.card td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+.card th{background:#f4f7fa;font-weight:650;white-space:nowrap}
+.card tbody tr:nth-child(even){background:#fafbfc}
+
+/* ---------- Въпроси ---------- */
+.card details{
+  border:1px solid var(--line);border-radius:8px;
+  padding:12px 16px;margin-bottom:8px;background:#fafbfc;
+}
+.card details[open]{background:#fff}
+.card details summary{cursor:pointer;font-weight:600;color:var(--ink);font-size:15px}
+.card details summary:hover{color:var(--accent)}
+.card details p{margin:10px 0 0;font-size:14px;color:var(--muted)}
+
+/* ---------- Футър ---------- */
+.ftr{
+  background:#eef1f4;border-top:1px solid var(--line);
+  margin-top:36px;padding:22px 16px;
+  text-align:center;font-size:13px;color:var(--muted);
+}
+.ftr a{color:var(--accent)}
+/* Подписът: собствен ред под основния; цветът е приглушеният на футъра, знакът го наследява. */
+.ftr-made{margin:10px 0 0;color:var(--muted)}
+
+/* ==================================================================
+   Помощник за СИК: навигация, плочки, пътеводител, проверка, въпроси
+   ================================================================== */
+
+/* ---------- Основна навигация ---------- */
+.site-nav{
+  background:#123f6b;display:flex;flex-wrap:wrap;gap:2px;align-items:center;
+  justify-content:center;padding:6px 10px;
+}
+.site-nav a{
+  color:#dbe7f3;text-decoration:none;font-size:14px;font-weight:550;
+  padding:7px 11px;border-radius:7px;white-space:nowrap;
+}
+.site-nav a:hover{background:rgba(255,255,255,.12);color:#fff}
+.site-nav a[aria-current="page"]{background:rgba(255,255,255,.18);color:#fff}
+.site-nav .brand{font-weight:700;color:#fff}
+.site-nav a:focus-visible{outline:2px solid #fff;outline-offset:1px}
+
+.hdr.slim{padding:20px 16px 18px}
+.hdr.slim h1{font-size:22px;margin-bottom:4px}
+.hdr.slim .lead{margin-bottom:0;font-size:15px}
+
+/* ---------- Плочки на началната страница ---------- */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:20px}
+.tile{
+  display:flex;flex-direction:column;gap:8px;
+  background:var(--card);border:1px solid var(--line);border-radius:10px;
+  padding:18px;text-decoration:none;color:var(--ink);
+}
+a.tile:hover{border-color:var(--accent);box-shadow:0 2px 10px rgba(27,94,158,.12)}
+a.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tile-title{font-size:17px;font-weight:650;color:var(--accent)}
+.tile-text{font-size:14px;color:var(--muted);flex:1}
+.tile-go{font-size:14px;font-weight:600;color:var(--accent)}
+.tile.partial{border-style:dashed}
+.tile.disabled{background:#f7f8f9;border-style:dashed;cursor:not-allowed}
+.tile.disabled .tile-title{color:var(--muted)}
+
+.badge{
+  display:inline-block;vertical-align:middle;margin-left:6px;
+  background:#fff3d6;color:#7a5200;border:1px solid #f0d99a;border-radius:999px;
+  padding:1px 8px;font-size:11px;font-weight:650;white-space:nowrap;
+}
+.card.secondary{background:#f7f8f9}
+.card.pending{border-style:dashed}
+.legal{margin:18px 4px 0}
+
+/* ---------- Източници ---------- */
+.srcs{margin:8px 0 0;font-size:12.5px;color:var(--muted);line-height:1.9}
+.srcs-label{margin-right:2px}
+.src{
+  display:inline-block;margin:0 4px 0 0;padding:0 7px;border-radius:5px;
+  background:#eef4fb;color:var(--accent);text-decoration:none;font-weight:550;
+  border:1px solid #d5e3f2;
+}
+a.src:hover{background:#dfeaf6}
+
+/* ---------- Пътеводител ---------- */
+.crumbs{margin:16px 4px 0;font-size:14px}
+.crumbs a{color:var(--accent)}
+#guide .card{margin-top:12px}
+#guide h2:focus{outline:none}
+.options{display:grid;gap:10px;margin:14px 0 6px}
+.option{
+  display:flex;flex-direction:column;gap:3px;
+  border:2px solid var(--line);border-radius:10px;padding:14px 16px;
+  text-decoration:none;color:var(--ink);background:#fff;
+}
+a.option:hover{border-color:var(--accent);background:#f5f9fd}
+a.option:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.option-label{font-size:16px;font-weight:600}
+.option-sub{font-size:13px;color:var(--muted)}
+.option-note{font-size:13px;color:var(--muted)}
+.option.disabled{border-style:dashed;background:#f7f8f9;cursor:not-allowed}
+.option.disabled .option-label{color:var(--muted)}
+.option .badge{align-self:flex-start;margin-left:0}
+
+.protocols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:14px 0}
+.protocol{border:1px solid #bfe3cd;background:#f1f9f4;border-radius:10px;padding:14px 16px}
+.protocol p{margin:0 0 6px}
+.protocol-no{font-size:18px;font-weight:700;color:#1d7a45}
+.protocol-title{font-weight:600}
+.protocol-why{font-size:13.5px;color:var(--muted)}
+.protocol .protocol-actions{margin-top:10px}
+
+.gnote{border-left:3px solid #c98a00;background:#fdf8ee;padding:9px 13px;border-radius:0 6px 6px 0;font-size:14px}
+.pending-note{background:#fdf8ee;border:1px dashed #e6c873;border-radius:7px;padding:8px 12px;font-size:13.5px;color:#5c4300}
+.pending-note .badge{margin-left:0}
+
+.card ol.steps{list-style:none;padding:0;counter-reset:step}
+.card li.step{counter-increment:step;border-top:1px solid var(--line);padding:12px 0;margin:0}
+.step-main{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.step-main input{width:20px;height:20px;margin:2px 0 0;flex:none;accent-color:var(--accent)}
+.step-text::before{content:counter(step) ". ";font-weight:650;color:var(--accent)}
+.step.done .step-text{color:var(--muted);text-decoration:line-through;text-decoration-color:#b9c0c7}
+.step .srcs,.step .step-check,.step .pending-note{margin-left:30px}
+.card .step .step-check{margin-top:8px;margin-bottom:0}
+.card .step .pending-note{margin-top:8px;margin-bottom:0}
+.btn.small{padding:6px 12px;font-size:14px}
+
+/* ---------- Проверка на протокол ---------- */
+.tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:12px 0}
+.tab{
+  display:flex;flex-direction:column;gap:2px;text-decoration:none;
+  border:2px solid var(--line);border-radius:9px;padding:9px 12px;background:#fff;
+}
+.card a.tab{color:var(--ink)}
+.tab b{font-size:15px}
+.tab span{font-size:12.5px;color:var(--muted)}
+.tab:hover{border-color:var(--accent)}
+.tab.active{border-color:var(--accent);background:#eef4fb}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.fields{display:grid;gap:10px;margin:0 0 6px}
+.field{
+  display:grid;grid-template-columns:1fr 120px;gap:4px 12px;align-items:center;
+  border-top:1px solid var(--line);padding-top:10px;
+}
+.field label{display:flex;gap:8px;align-items:baseline;font-size:14px}
+.field-no{flex:none;min-width:38px;font-weight:700;color:var(--accent)}
+.card .field-hint{grid-column:1 / -1;margin:0;font-size:12.5px;color:var(--muted)}
+.field.setup{border-top:0;padding-top:0;margin-bottom:6px}
+/* превключвател „Моите числа“ / „Пример с обяснения“ */
+.modes{display:inline-flex;border:1px solid var(--accent);border-radius:9px;overflow:hidden;margin:0 0 10px}
+.mode{
+  font:inherit;font-size:15px;font-weight:600;cursor:pointer;border:0;background:#fff;color:var(--accent);
+  padding:9px 16px;
+}
+.mode + .mode{border-left:1px solid var(--accent)}
+.mode.active{background:var(--accent);color:#fff}
+.mode:focus-visible{outline:2px solid #123f6b;outline-offset:-3px}
+.example-banner{background:#eef4fb;border:1px solid #c9dcf0;border-radius:8px;padding:10px 14px;margin:0 0 6px}
+.card .example-banner p{margin:0 0 6px;font-size:14px}
+.card .example-banner p:last-child{margin:0;color:var(--muted);font-size:13px}
+input.num.example{background:#f4f7fa;color:#123f6b;font-weight:600;cursor:default}
+.card .field-why{grid-column:1 / -1;margin:0;padding:7px 10px;border-radius:6px;background:#eef4fb;font-size:13px;line-height:1.75}
+.field-why b{color:var(--accent)}
+
+/* грешка или потвърждение до самото поле */
+.field.bad input.num{border-color:#b3261e;background:#fdf2f1}
+.field.good input.num{border-color:#8fcba6}
+.card .field-msg{grid-column:1 / -1;margin:2px 0 0;padding:7px 10px;border-radius:6px;background:#fdf2f1;border:1px solid #f0c5c1}
+.field-msg-hint{display:block;color:#b3261e;font-weight:600;font-size:13.5px}
+.field-msg-quote{display:block;color:#6b3a36;font-size:12.5px;margin-top:2px}
+.list-total{border-top:2px solid var(--line);padding-top:8px}
+.card .list-sum{margin:0;font-weight:600;font-size:14px;text-align:right}
+.list-total.bad .list-sum{color:#b3261e}
+.list-total.good .list-sum{color:#1d7a45}
+.control-jump{
+  align-self:flex-start;margin-top:4px;font:inherit;font-size:12.5px;cursor:pointer;
+  border:1px solid #f0c5c1;background:#fff;color:#b3261e;border-radius:6px;padding:3px 9px;
+}
+.control-jump:hover{background:#fdf2f1}
+.control-jump:focus-visible{outline:2px solid #b3261e;outline-offset:2px}
+.field-label .list-names{display:block}
+.field-label .list-by{display:block;font-size:12.5px;color:var(--muted)}
+input.num,.search{
+  font:inherit;font-size:16px;color:var(--ink);width:100%;
+  border:1px solid #b9c0c7;border-radius:7px;padding:8px 10px;background:#fff;
+}
+input.num{text-align:right;font-variant-numeric:tabular-nums}
+input.num:focus,.search:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:var(--accent)}
+input.num.invalid{border-color:#b3261e;background:#fdf2f1}
+.option-check label{display:flex;gap:8px;align-items:flex-start;font-size:14px;cursor:pointer}
+.option-check input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:var(--accent)}
+
+.summary{border-radius:8px;padding:10px 14px;font-weight:600}
+.summary.ok{background:#f1f9f4;border:1px solid #bfe3cd;color:#1d7a45}
+.summary.bad{background:#fdf2f1;border:1px solid #f0c5c1;color:#b3261e}
+.summary.empty{background:#f4f7fa;border:1px solid var(--line);color:var(--muted);font-weight:500}
+.card ul.controls{list-style:none;padding:0;margin:0 0 8px}
+.card li.control{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line);margin:0}
+.control-mark{flex:none;width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.control.ok .control-mark{background:#dff3e6;color:#1d7a45}
+.control.bad .control-mark{background:#fbdcd9;color:#b3261e}
+.control.empty .control-mark{background:#eef1f4;color:var(--muted)}
+.control-body{display:flex;flex-direction:column;gap:2px}
+.control-quote{font-size:14px}
+.control-detail{font-size:13px;color:var(--muted)}
+.control.bad .control-detail{color:#b3261e;font-weight:550}
+
+/* ---------- Въпроси ---------- */
+/* ---------- Пълният текст на пътеводителя (вписан при строенето, за търсачки и печат) ---------- */
+details.guide-text{margin-top:20px}
+details.guide-text > summary{cursor:pointer;font-weight:650;font-size:16px;color:var(--accent)}
+.guide-node{border-top:1px solid var(--line);padding:14px 0 6px;margin-top:10px}
+.guide-node h3{margin:0 0 8px;font-size:16px;color:var(--ink)}
+.card .guide-node ul.guide-options,.card .guide-node ol.guide-steps{margin:6px 0 10px;padding-left:22px}
+.guide-node li{margin:6px 0}
+.guide-node li .srcs{margin-top:2px}
+@media print{
+  .site-nav,.ftr,.nav,#guide,.legal{display:none !important}
+  details.guide-text,details.faq{border:0;padding:0}
+  details.guide-text > summary,details.faq > summary{list-style:none}
+  details.guide-text > summary::-webkit-details-marker{display:none}
+  .card{border:0;box-shadow:none;padding:0}
+}
+
+.search-label{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 4px}
+.chip{
+  font:inherit;font-size:13px;cursor:pointer;
+  border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:5px 12px;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card details.faq .faq-a{color:var(--ink);font-size:14.5px}
+.card details.faq ol.faq-steps{margin:8px 0 10px;padding-left:22px;font-size:14.5px}
+.card details.faq ol.faq-steps li{margin:6px 0}
+.card details.faq ol.faq-steps li.unverified{color:#5c4300}
+.card details.faq .pending-note{margin:0 0 10px}
+.card details.faq .srcs{margin-top:8px}
+
+@media (max-width:480px){
+  .card{padding:16px}
+  .field{grid-template-columns:1fr 96px}
+  .site-nav a{padding:6px 8px;font-size:13px}
+}

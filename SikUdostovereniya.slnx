@@ -1,6 +1,0 @@
-<Solution>
-  <Folder Name="/src/">
-    <Project Path="src/SikUdostovereniya.Web/SikUdostovereniya.Web.csproj" />
-    <Project Path="src/SikUdostovereniya.Tools/SikUdostovereniya.Tools.csproj" />
-  </Folder>
-</Solution>

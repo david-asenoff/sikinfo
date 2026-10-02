@@ -4,7 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>SikUdostovereniya.Web</RootNamespace>
+    <RootNamespace>SikInfo.Web</RootNamespace>
     <!-- Хостингът е тестван с този модел: IIS препраща към Kestrel в отделен процес.
          При publish в web.config се записва hostingModel="OutOfProcess". -->
     <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>

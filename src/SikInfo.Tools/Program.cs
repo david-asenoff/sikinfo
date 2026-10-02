@@ -11,7 +11,7 @@
 // Excel файловете се пишат директно като XML в ZIP, без външни библиотеки.
 //
 // Използване (от главната папка на репото):
-//   dotnet run --project src/SikUdostovereniya.Tools -- 2026-10-25-PVR
+//   dotnet run --project src/SikInfo.Tools -- 2026-10-25-PVR
 
 using System.IO.Compression;
 using System.Text;
